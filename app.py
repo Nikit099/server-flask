@@ -37,12 +37,16 @@ def predict_route():
     audio_path = os.path.join('uploads', audio_file.filename)
     audio_file.save(audio_path)
     print(f"Audio file saved at {audio_path}")
+    print("")
     
     try:
         prediction = predict(audio_path)
         predicted_label = label_to_index[prediction]
         print(f"Predicted label: {predicted_label}")
         response = jsonify({'prediction': predicted_label})
+        print(response)
+
+
     except Exception as e:
         print(f"Error: {str(e)}")
         response = jsonify({'error': str(e)})
