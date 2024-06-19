@@ -60,4 +60,7 @@ def predict_route():
 
 
 if __name__ == '__main__':
-	app.run(debug=True, port=5000)
+    if not os.path.exists('uploads'):
+        os.makedirs('uploads')
+    app.run(debug=True, port=5000)
+    
